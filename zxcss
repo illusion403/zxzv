@@ -1,0 +1,8 @@
+aws ssm send-command ^
+  --instance-ids "%INSTANCE_ID%" ^
+  --document-name "AWS-RunPowerShellScript" ^
+  --comment "Copy from S3 to C:\\temp" ^
+  --parameters commands=[
+    "if (!(Test-Path 'C:\\temp')) { New-Item -ItemType Directory -Path 'C:\\temp' }",
+    "aws s3 cp s3://%S3_BUCKET%/%S3_KEY% C:\\temp\\app.zip"
+  ]

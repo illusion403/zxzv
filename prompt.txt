@@ -1,0 +1,31 @@
+I have a VB.NET ASP.NET (.NET Framework) application running on IIS in AWS EC2.
+
+Environment:
+- Single EC2 instance
+- Single IIS server
+- Multiple IIS Application Pools
+- Applications hosted on:
+    app1.company.com
+    app2.company.com
+- Cookie authentication must be shared across subdomains
+- Security policy does NOT allow using <machineKey>
+- Must pass enterprise insurance security audit
+
+Requirements:
+1. Do NOT use machineKey
+2. Do NOT store cryptographic keys in web.config
+3. Support shared cookie across subdomains
+4. Support multiple App Pools
+5. Use strong cryptography (RSA 2048+ / AES 256)
+6. Allow future scale to multiple EC2 instances
+7. Follow secure key management best practices
+
+Please design:
+- Secure architecture
+- Data protection strategy
+- Certificate-based encryption approach (Hybrid AES + RSA)
+- Sample VB.NET implementation of IDataProtector
+- Proper CookieAuthenticationOptions configuration
+- Key rotation strategy
+- IIS permission configuration
+- Security justification for audit documentation
